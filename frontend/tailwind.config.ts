@@ -146,6 +146,7 @@ export default {
         "slide-in": "slide-in 0.4s ease-out",
         "scale-in": "scale-in 0.2s ease-out",
         "glow": "glow 2s ease-in-out infinite",
+        "text-shadow": "0 0 8px currentColor, 0 0 16px currentColor"
       },
     },
   },

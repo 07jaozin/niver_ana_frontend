@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Gift, Music, Cake } from 'lucide-react';
-import birthdayCake from '@/assets/aniversario.jpg';
+import { Gift, Music, Cake, Heart} from 'lucide-react';
+import birthdayCake from '@/assets/bolo17p.png';
+import partyBackground from '@/assets/bg.jpg';
+
+
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +27,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 relative">
+    <section ref={sectionRef} className="py-20 px-4 relative" >
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -32,11 +35,7 @@ const AboutSection = () => {
           <h2 className="font-dancing text-4xl md:text-6xl font-bold text-primary mb-4">
             Uma Noite Inesquecível
           </h2>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Prepare-se para uma festa especial! Ana Julia está completando 17 anos e quer celebrar 
-            essa data especial com as pessoas mais importantes da sua vida. Uma noite cheia de 
-            música, diversão e momentos únicos espera por você!
-          </p>
+          
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -63,36 +62,13 @@ const AboutSection = () => {
                 <Music className="w-6 h-6 text-party-accent" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Música e Dança</h3>
+                <h3 className="text-xl font-semibold mb-2">Show ao vivo</h3>
                 <p className="text-foreground/70">
-                  Playlist especial com os hits do momento e clássicos que todo mundo ama!
+                  Santomé conta com shows ao vivos para animar a noite!
                 </p>
               </div>
             </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="bg-gradient-card p-3 rounded-full shadow-party">
-                <Cake className="w-6 h-6 text-party-gold" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Delícias Especiais</h3>
-                <p className="text-foreground/70">
-                  Bolo personalizado, doces irresistíveis e surpresas gastronômicas!
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="bg-gradient-card p-3 rounded-full shadow-party">
-                <Gift className="w-6 h-6 text-party-silver" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Surpresas Especiais</h3>
-                <p className="text-foreground/70">
-                  Momentos únicos, jogos divertidos e muitas surpresas durante a noite!
-                </p>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>

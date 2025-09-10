@@ -4,6 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { CheckCircle, Heart, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import partyBackground from '@/assets/bg.jpg';
+
 
 const RSVPSection = () => {
   const [name, setName] = useState('');
@@ -104,15 +106,14 @@ const RSVPSection = () => {
   return (
     <section id="rsvp" ref={sectionRef} className="py-20 px-4">
       <div className="max-w-2xl mx-auto">
+        
         <div className={`text-center mb-12 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className="font-dancing text-4xl md:text-6xl font-bold text-primary mb-4">
             Confirme sua Presença
           </h2>
-          <p className="text-lg text-foreground/80">
-            Sua presença é o melhor presente! Confirme e vamos tornar essa noite inesquecível juntos.
-          </p>
+          
         </div>
 
         <Card className={`bg-gradient-card border-party-accent/20 shadow-party hover:shadow-glow transition-all duration-500 p-8 ${
@@ -155,7 +156,7 @@ const RSVPSection = () => {
           </form>
 
           <p className="text-xs text-muted-foreground text-center mt-4">
-            * Suas informações são mantidas em privado e usadas apenas para organização do evento.
+            *Caso queira cancelar sua presença, me chame no privado
           </p>
         </Card>
       </div>

@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { MapPin, Clock, Shirt, Camera, Music2, Utensils } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import mapa from '@/assets/santome.png'; 
+import { Heart, Instagram, Music, Share2 } from 'lucide-react';
+import partyBackground from '@/assets/bg.jpg';
+
 
 const EventDetailsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,44 +61,12 @@ const EventDetailsSection = () => {
   return (
     <section ref={sectionRef} className="py-20 px-4 bg-party-primary/30">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <h2 className="font-dancing text-4xl md:text-6xl font-bold text-primary mb-4">
-            Detalhes do Evento
-          </h2>
-          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-            Tudo o que você precisa saber para aproveitar ao máximo essa noite especial
-          </p>
+      <div className="flex justify-center items-center space-x-4 mb-8">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent to-party-accent"></div>
+          <Heart className="w-6 h-6 text-red-400 animate-pulse" />
+          <div className="w-16 h-px bg-gradient-to-r from-party-accent to-transparent"></div>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {details.map((detail, index) => (
-            <Card 
-              key={index}
-              className={`bg-gradient-card border-party-accent/10 shadow-party hover:shadow-glow transition-all duration-500 p-6 group hover:scale-105 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className={`${detail.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                {detail.icon}
-              </div>
-              
-              <h3 className="text-xl font-semibold text-foreground mb-2">
-                {detail.title}
-              </h3>
-              
-              <p className="text-party-accent font-medium mb-3">
-                {detail.description}
-              </p>
-              
-              <p className="text-sm text-foreground/70 leading-relaxed">
-                {detail.info}
-              </p>
-            </Card>
-          ))}
-        </div>
+        <br />
 
         {/* Map Placeholder */}
         <div className={`mt-16 transition-all duration-1000 delay-600 ${

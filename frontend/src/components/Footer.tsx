@@ -1,5 +1,7 @@
 import { Heart, Instagram, Music, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import partyBackground from '@/assets/bg.jpg';
+
 
 const Footer = () => {
   const shareEvent = () => {
@@ -26,8 +28,7 @@ const Footer = () => {
             Esperamos você para tornar esse dia inesquecível!
           </h3>
           <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-            Sua presença é o melhor presente que Ana Julia pode receber. 
-            Vamos juntos celebrar mais um ano de vida, alegria e conquistas!
+           
           </p>
         </div>
 
@@ -47,19 +48,15 @@ const Footer = () => {
             variant="outline" 
             size="lg"
             className="border-party-gold/30 hover:bg-party-gold/10 hover:border-party-gold"
+            onClick={() => {
+              window.open("https://www.instagram.com/ana_casthro?igsh=MWwxZXBneGR0MDM0cw==", "__blank");
+              }}
           >
             <Instagram className="w-5 h-5 mr-2" />
-            Siga @anajulia
+            Siga ana_casthro
           </Button>
           
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-party-silver/30 hover:bg-party-silver/10 hover:border-party-silver"
-          >
-            <Music className="w-5 h-5 mr-2" />
-            Playlist da Festa
-          </Button>
+          
         </div>
 
         {/* Decorative Elements */}
@@ -73,16 +70,16 @@ const Footer = () => {
         <div className="bg-gradient-card rounded-lg p-6 shadow-party mb-8 max-w-md mx-auto">
           <h4 className="font-semibold text-lg mb-2">Lembrete:</h4>
           <p className="text-sm text-foreground/70">
-            <strong>Data:</strong> 19 de Setembro de 2026<br />
-            <strong>Horário:</strong> 20:00h<br />
-            <strong>Dress Code:</strong> Esporte Fino
+            <strong>Data:</strong> 21 de Setembro de 2025<br />
+            <strong>Horário:</strong> 19:00h<br />
+         
           </p>
         </div>
 
         {/* Copyright */}
         <div className="text-sm text-muted-foreground">
-          <p>Feito com muito ❤️ para Ana Julia</p>
-          <p className="mt-2">© 2026 - Convite Digital Especial</p>
+          
+          <p className="mt-2">© 2025 - Convite Digital Especial</p>
         </div>
 
         {/* Floating Sparkles */}

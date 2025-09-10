@@ -73,6 +73,10 @@ export default function GuestListManager() {
     setGuests(prev => prev.filter(g => g.id !== guestId));
     
     if (guest) {
+      fetch(`/excluir/${guestId}`)
+      .then((res) => res.json())
+      .then((data) => setGuests(data))
+      .catch((err) => console.error("Erro ao buscar convidados:", err));
       toast({
         title: "Convidado removido",
         description: `${guest.name} foi removido da lista.`,

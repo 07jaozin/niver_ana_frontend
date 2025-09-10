@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import partyBackground from '@/assets/bg.jpg';
+
 
 interface Particle {
   id: number;
