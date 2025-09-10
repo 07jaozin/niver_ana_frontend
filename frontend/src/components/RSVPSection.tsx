@@ -44,7 +44,7 @@ const RSVPSection = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch("https://niverana-production.up.railway.app/api/rsvp", {
+      const response = await fetch("https://niveranabackend-production.up.railway.app/api/rsvp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

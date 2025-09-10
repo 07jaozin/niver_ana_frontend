@@ -18,7 +18,7 @@ export default function GuestListManager() {
   
   const [guests, setGuests] = useState<Guest[]>([]);
   useEffect(() => {
-    fetch("https://niverana-production.up.railway.app/nomes")
+    fetch("https://niveranabackend-production.up.railway.app/nomes")
       .then((res) => res.json())
       .then((data: Guest[]) => setGuests(data))
       .catch((err) => console.error("Erro ao buscar convidados:", err));
