@@ -12,7 +12,7 @@ interface Guest {
   name: string;
 }
 
-const MAX_GUESTS = 15;
+const MAX_GUESTS = 20;
 
 export default function GuestListManager() {
   
@@ -26,7 +26,7 @@ export default function GuestListManager() {
   const [newGuestName, setNewGuestName] = useState('');
   const { toast } = useToast();
 
-  const addGuest = () => {
+  const addGuest = async () => {
     if (!newGuestName.trim()) {
       toast({
         title: "Nome obrigatório",
@@ -59,6 +59,18 @@ export default function GuestListManager() {
       name: newGuestName.trim(),
     };
 
+    
+      const response = await fetch("https://niveranabackend-production.up.railway.app/api/rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ newGuestName }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Erro ao confirmar presença");
+      }
     setGuests(prev => [...prev, newGuest]);
     setNewGuestName('');
     
