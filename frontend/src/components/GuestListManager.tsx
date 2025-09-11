@@ -75,7 +75,7 @@ export default function GuestListManager() {
     if (guest) {
       fetch(`https://niveranabackend-production.up.railway.app/excluir/${guestId}`)
       .then((res) => res.json())
-      .then((data) => setGuests(data))
+      .then((data) => console.log(data))
       .catch((err) => console.error("Erro ao buscar convidados:", err));
       toast({
         title: "Convidado removido",
