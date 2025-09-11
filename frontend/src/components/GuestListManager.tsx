@@ -73,7 +73,7 @@ export default function GuestListManager() {
     setGuests(prev => prev.filter(g => g.id !== guestId));
     
     if (guest) {
-      fetch(`/excluir/${guestId}`)
+      fetch(`https://niveranabackend-production.up.railway.app/excluir/${guestId}`)
       .then((res) => res.json())
       .then((data) => setGuests(data))
       .catch((err) => console.error("Erro ao buscar convidados:", err));
