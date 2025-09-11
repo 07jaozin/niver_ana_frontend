@@ -68,21 +68,44 @@ export default function GuestListManager() {
     });
   };
 
-  const removeGuest = (guestId: string) => {
+  const removeGuest = async (guestId: string) => {
     const guest = guests.find(g => g.id === guestId);
+  
+    // Remove do estado local imediatamente (efeito otimista)
     setGuests(prev => prev.filter(g => g.id !== guestId));
-    
+  
     if (guest) {
-      fetch(`https://niveranabackend-production.up.railway.app/excluir/${guestId}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error("Erro ao buscar convidados:", err));
-      toast({
-        title: "Convidado removido",
-        description: `${guest.name} foi removido da lista.`,
-      });
+      try {
+        const response = await fetch("https://niveranabackend-production.up.railway.app/excluir", {
+          method: "POST", // ou DELETE se você ajustar no backend
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(guestId),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Erro ao excluir convidado");
+        }
+  
+        toast({
+          title: "Convidado removido",
+          description: `${guest.name} foi removido da lista.`,
+        });
+      } catch (error) {
+        console.error("Erro ao excluir:", error);
+        toast({
+          title: "Erro",
+          description: "Não foi possível remover o convidado no servidor.",
+          variant: "destructive",
+        });
+  
+        // rollback (se o backend falhar, devolve o convidado à lista)
+        setGuests(prev => [...prev, guest]);
+      }
     }
   };
+  
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
